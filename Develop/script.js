@@ -47,5 +47,5 @@ var saveBtnEl = $('.btn')
     saveBtnEl.on("click", function() {
         var timeId = $(this).parent().attr('id');
         var textAreaVal = $(this).siblings('textarea').val();
-        
+        localStorage.setItem(timeId, textAreaVal);
        });
