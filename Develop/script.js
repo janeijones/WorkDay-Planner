@@ -8,47 +8,38 @@
 
 // if past - gray, else if - current red , else - future green .addClassList .removeClassList 2. moment(); comparison 
 
-var dateEl = $('#currentDay');
-var textAreaEl = $('
-var timeEl =
+var saveBtnEl = $('.btn')
 
-function displayDate() {    // function to show date at top of page
+  
     var today = moment().format('dddd, MMMM Do');
     dateEl.text(today);
-}
 
-    var actualTime = moment().format('h');
+    var actualTime = moment().hour();
     
-//   var plannerTime = textAreaEl.dataset.time;
-//     console.log(plannerTime);
-
-//     if (plannerTime < actualTime)
-//     {
-//         textAreaEl.addClass('past');
-//         textAreaEl.removeClass('future');
-//         textAreaEl.removeClass('present');
-//     }
-//     else if (plannerTime === actualTime)
-//     {
-//         textAreaEl.addClass('present');
-//         textAreaEl.removeClass('future');
-//         textAreaEl.removeClass('past');
-//     }
-//     else 
-//     {
-//         textAreaEl.addClass('future');
-//         textAreaEl.removeClass('past');
-//         textAreaEl.removeClass('present');
-//     }
+    $('.time-block').each(function(){
     
+        var plannerTime = parseInt($(this).attr('id')); //planner string variable
+         console.log(plannerTime)
+        console.log(actualTime + "actual time");
+        
+        if (plannerTime < actualTime)
+        {
+            $(this).addClass('past');
+            $(this).removeClass('future');
+            $(this).removeClass('present');
+        }
+        else if (plannerTime === actualTime)
+        {
+            $(this).addClass('present');
+            $(this).removeClass('future');
+            $(this).removeClass('past');
+        }
+        else {
+            
+            $(this).addClass('past');
+            $(this).removeClass('present');
+            $(this).removeClass('past');
+        }
     
-
-
-
-
-
-
-
-
-setInterval(displayDate, 1000);
-
+ 
+    }); 
