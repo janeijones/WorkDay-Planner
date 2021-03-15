@@ -9,6 +9,7 @@
 // if past - gray, else if - current red , else - future green .addClassList .removeClassList 2. moment(); comparison 
 
 var saveBtnEl = $('.btn')
+var dateEl = $('#currentDay')
 
   
     var today = moment().format('dddd, MMMM Do');
@@ -19,8 +20,6 @@ var saveBtnEl = $('.btn')
     $('.time-block').each(function(){
     
         var plannerTime = parseInt($(this).attr('id')); //planner string variable
-         console.log(plannerTime)
-        console.log(actualTime + "actual time");
         
         if (plannerTime < actualTime)
         {
