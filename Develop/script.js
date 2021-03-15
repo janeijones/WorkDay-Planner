@@ -49,3 +49,6 @@ var saveBtnEl = $('.btn')
         var textAreaVal = $(this).siblings('textarea').val();
         localStorage.setItem(timeId, textAreaVal);
        });
+
+       $('#9 textarea').val(localStorage.getItem('9'));
+      
