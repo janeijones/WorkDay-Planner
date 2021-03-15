@@ -1,27 +1,18 @@
-// save the user input to local storage using the save button - eventListener - onlick 
-// function save:
-// setItem - saves to local storage - using dom traversal 
-
-//select id from text area - getItem - persisted data 
-
-// update color based on time of day - div using class
-
-// if past - gray, else if - current red , else - future green .addClassList .removeClassList 2. moment(); comparison 
-
+// elements selecting buttons and date 
 var saveBtnEl = $('.btn')
 var dateEl = $('#currentDay')
 
   
-    var today = moment().format('dddd, MMMM Do');
-    dateEl.text(today);
+    var today = moment().format('dddd, MMMM Do'); 
+    dateEl.text(today); //displaying date on page
 
-    var actualTime = moment().hour();
+    var actualTime = moment().hour(); //saving time to webpage
     
     $('.time-block').each(function(){
     
-        var plannerTime = parseInt($(this).attr('id')); //planner string variable
+        var plannerTime = parseInt($(this).attr('id')); //planner string variable converted to int 
         
-        if (plannerTime < actualTime)
+        if (plannerTime < actualTime)  //comparing planner time to actual time
         {
             $(this).addClass('past');
             $(this).removeClass('future');
@@ -43,13 +34,13 @@ var dateEl = $('#currentDay')
  
     }); 
 
-    saveBtnEl.on("click", function() {
-        var timeId = $(this).parent().attr('id');
-        var textAreaVal = $(this).siblings('textarea').val();
-        localStorage.setItem(timeId, textAreaVal);
+    saveBtnEl.on("click", function() {   //on click button for all buttons 
+        var timeId = $(this).parent().attr('id');         //getting time ID attr
+        var textAreaVal = $(this).siblings('textarea').val(); //getting text area value 
+        localStorage.setItem(timeId, textAreaVal);   // set item to local stroage
        });
 
-        $('#9 textarea').val(localStorage.getItem('9'));
+        $('#9 textarea').val(localStorage.getItem('9')); //get item frm local storage
         $('#10 textarea').val(localStorage.getItem('10'));
         $('#11 textarea').val(localStorage.getItem('11'));
         $('#12 textarea').val(localStorage.getItem('12'));
